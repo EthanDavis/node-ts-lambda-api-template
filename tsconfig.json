@@ -1,0 +1,37 @@
+{
+  "compilerOptions": {
+    "moduleResolution": "node",
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "removeComments": true,
+    "sourceMap": false,
+    "rootDir": "./",
+    "lib": [
+      "ES2019"
+    ],
+    "module": "commonjs",
+    "target": "ES2017",
+    "outDir": "build",
+    "types": [
+      "node",
+      "@types/mocha",
+      "@types/chai",
+      "@types/sinon"
+    ]
+  },
+  "typeRoots": [
+    "node_modules/@types"
+  ],
+  "include": [
+    "./src/**/*",
+    "src/handler.ts",
+    "index.ts"
+  ],
+  "exclude": [
+    "node_modules/**/*",
+    ".serverless/**/*",
+    ".webpack/**/*",
+    "_warmup/**/*",
+    ".vscode/**/*"
+  ]
+}

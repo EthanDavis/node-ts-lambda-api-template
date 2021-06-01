@@ -1,0 +1,30 @@
+service: node-ts-lambda-api-template
+
+provider:
+  lambdaHashingVersion: 20201221
+  name: aws
+  stackName: lambda-api-template
+  runtime: nodejs14.x
+  memorySize: 2048
+  timeout: 30
+  vpc:
+    securityGroupIds:
+      - ${SECURITY_GROUPS}
+    subnetIds:
+      - ${SUBNETS}      
+  environment:
+    AMAZON_ACCESS_KEY: ${AMAZON_ACCESS_KEY}
+    AMAZON_SECRET_KEY: ${AMAZON_SECRET_KEY}
+    
+package: 
+  artifact: template.zip
+
+functions:
+  event:
+    handler: src/handler.handle
+    name: lambda-api-template
+    events:
+      - http:
+          path: /api/health
+          method: get
+          cors: true
