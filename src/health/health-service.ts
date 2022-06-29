@@ -8,6 +8,6 @@ export class HealthService {
     }
 
     async getDatabaseInfo (): Promise<DynamoDB.DescribeTableOutput> {
-        return this.dbClient.describeTable({ TableName: "event_test" }).promise();
+        return this.dbClient.describeTable({ TableName: "test_table" }).promise();
     }
 }

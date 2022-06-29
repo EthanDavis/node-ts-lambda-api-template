@@ -2,6 +2,8 @@ service: node-ts-lambda-api-template
 
 provider:
   lambdaHashingVersion: 20201221
+  apiGateway:
+    shouldStartNameWithService: true
   name: aws
   stackName: lambda-api-template
   runtime: nodejs14.x
@@ -9,13 +11,14 @@ provider:
   timeout: 30
   vpc:
     securityGroupIds:
-      - ${SECURITY_GROUPS}
+      - ${ADD_SECURITY_GROUPS_HERE}
     subnetIds:
-      - ${SUBNETS}      
+      - ${ADD_SUBNETS_HERE}      
   environment:
-    AMAZON_ACCESS_KEY: ${AMAZON_ACCESS_KEY}
-    AMAZON_SECRET_KEY: ${AMAZON_SECRET_KEY}
-    
+    AMAZON_ACCESS_KEY: ${env:AMAZON_ACCESS_KEY}
+    AMAZON_SECRET_KEY: ${env:AMAZON_SECRET_KEY}
+plugins:
+  - serverless-offline
 package: 
   artifact: template.zip
 
