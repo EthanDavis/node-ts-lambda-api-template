@@ -8,3 +8,4 @@ For detailed instructions, please refer to the [documentation](https://www.serve
 
 - Run `npm i` to install the project dependencies
 - Run `sls deploy` to deploy this stack to AWS
+- Run `npm start` to run app locally
